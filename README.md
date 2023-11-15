@@ -1,4 +1,4 @@
-# Uploading Soil moisture sensor data in Thing Speak cloud
+## Uploading Soil moisture sensor data in Thing Speak cloud
 
 # AIM:
 To upload the Soil moisture senso data in the Thing speak using an ESP32 controller.
@@ -61,10 +61,51 @@ Automatically act on your data and communicate using third-party services like T
 
 
 # PROGRAM:
+```
+#define in1 6
+#define in2 7
+#define button 4
+int rotDirection = 0;
+int pressed = false;
+int bs;
+void setup() {
+  
+  pinMode(in1, OUTPUT);
+  pinMode(in2, OUTPUT);
+  pinMode(button, INPUT);
+  digitalWrite(in1, LOW);
+  digitalWrite(in2, HIGH);
+}
+void loop() {
+   
+  bs=digitalRead(button);
+  if (bs==1) {
+    digitalWrite(in1, HIGH);
+    digitalWrite(in2, LOW);
+    
+    delay(20);
+  }
+  else if(bs==0)  {
+     digitalWrite(in1, LOW);
+    digitalWrite(in2, HIGH);
+    delay(20);
+        
+  }
+  
+}
+```
 
 # CIRCUIT DIAGRAM:
 
+
+![281581589-682152ab-fe72-4a38-ac42-56b033a49a4e](https://github.com/MIRUDHULA-DHANARAJ/Soil-moisture-monitoring-using-Thing-speak/assets/94828147/7d307aa2-cfde-43a5-b01d-adb25ddbffec)
+
+
 # OUTPUT:
+
+![281581612-5d8a0070-a1fe-4bf8-9b6f-6e74c5f1b5b7](https://github.com/MIRUDHULA-DHANARAJ/Soil-moisture-monitoring-using-Thing-speak/assets/94828147/d7a075f7-28c9-44d5-864c-9659f2ada376)
+
+
 
 # RESULT:
 Thus the soil moisture sensor values are uploaded in the Thing speak using ESP32 controller.
